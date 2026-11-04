@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f1b2d">
+<title>    تابلویێن مودرێن | دهۆك</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0f1b2d;
+    --bg2:#16263f;
+    --gold:#e3b04b;
+    --gold2:#f4d58d;
+    --cream:#f8f1e4;
+    --teal:#2ec4b6;
+    --wa:#25d366;
+    --card:#ffffff;
+    --ink:#1b2a41;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--cream);color:var(--ink);line-height:1.8;overflow-x:hidden}
+  img,svg{max-width:100%}
+
+  /* ===== Header ===== */
+  header{position:fixed;top:0;inset-inline:0;z-index:50;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 5%;background:rgba(15,27,45,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+  .logo{color:var(--gold2);font-weight:800;font-size:1.25rem;white-space:nowrap}
+  .logo span{color:var(--teal)}
+  nav{display:flex;gap:6px}
+  nav a{color:#fff;text-decoration:none;font-size:.95rem;opacity:.85;transition:.3s;padding:6px 12px;border-radius:30px}
+  nav a:hover{opacity:1;color:var(--gold)}
+
+  /* ===== Hero ===== */
+  .hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:110px 6% 70px;color:#fff;position:relative;overflow:hidden;
+    background:radial-gradient(circle at 20% 20%,rgba(46,196,182,.25),transparent 40%),
+               radial-gradient(circle at 80% 70%,rgba(227,176,75,.25),transparent 45%),
+               linear-gradient(135deg,var(--bg),var(--bg2))}
+  .hero::before,.hero::after{content:"";position:absolute;border-radius:50%;opacity:.15;border:2px solid var(--gold);pointer-events:none}
+  .hero::before{width:380px;height:380px;top:-120px;left:-100px}
+  .hero::after{width:260px;height:260px;bottom:-80px;right:-60px;border-color:var(--teal)}
+  .hero > div{position:relative;z-index:1}
+  .hero h1{font-size:clamp(2rem,8vw,4.2rem);font-weight:800;line-height:1.35;margin-bottom:16px}
+  .hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--gold),var(--gold2),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{max-width:560px;margin:0 auto 32px;color:#cfd8e6;font-size:clamp(1rem,3.8vw,1.15rem)}
+  .hero-btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 30px;border-radius:50px;text-decoration:none;font-weight:600;transition:.3s;font-family:inherit;border:none;cursor:pointer;font-size:1rem;min-height:48px}
+  .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--bg);box-shadow:0 10px 25px rgba(227,176,75,.35)}
+  .btn-gold:hover{transform:translateY(-4px)}
+  .btn-line{border:2px solid var(--teal);color:var(--teal)}
+  .btn-line:hover{background:var(--teal);color:var(--bg)}
+
+  /* ===== Sections ===== */
+  section{padding:80px 5%}
+  .title{text-align:center;margin-bottom:46px}
+  .title h2{font-size:clamp(1.7rem,6vw,2.3rem);font-weight:800;color:var(--bg)}
+  .title .bar{width:70px;height:5px;border-radius:5px;margin:12px auto 0;background:linear-gradient(90deg,var(--gold),var(--teal))}
+  .title p{color:#6b7280;margin-top:10px}
+
+  /* ===== Gallery ===== */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:30px;max-width:1150px;margin:0 auto}
+  .card{background:var(--card);border-radius:22px;overflow:hidden;box-shadow:0 12px 35px rgba(15,27,45,.12);transition:.4s;display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-8px);box-shadow:0 22px 50px rgba(15,27,45,.22)}
+  .frame{padding:14px;background:linear-gradient(135deg,#f3e3bd,#e3b04b)}
+  .frame .art{display:block;width:100%;aspect-ratio:4/3;border:5px solid #fff;border-radius:4px;object-fit:cover;box-shadow:inset 0 0 12px rgba(0,0,0,.25)}
+  .info{padding:20px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .info h3{font-size:1.3rem;color:var(--bg)}
+  .info p{color:#6b7280;font-size:.93rem;flex:1}
+  .price{font-size:1.55rem;font-weight:800;color:var(--teal)}
+  .price small{font-size:.85rem;color:#6b7280;font-weight:400}
+  .actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+  .order{display:flex;align-items:center;justify-content:center;gap:6px;text-align:center;padding:12px 8px;border-radius:14px;text-decoration:none;font-weight:600;font-size:.95rem;transition:.3s;min-height:48px}
+  .order.call{background:var(--bg);color:#fff}
+  .order.call:hover{background:var(--teal);color:var(--bg)}
+  .order.wa{background:var(--wa);color:#fff}
+  .order.wa:hover{filter:brightness(.92);transform:translateY(-2px)}
+
+  /* ===== Contact ===== */
+  .contact{background:linear-gradient(135deg,var(--bg),var(--bg2));color:#fff;text-align:center}
+  .contact h2{font-size:clamp(1.6rem,6vw,2.1rem);margin-bottom:10px;color:var(--gold2)}
+  .contact p{color:#cfd8e6;margin:0 auto 28px;max-width:520px}
+  .contact-btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+  .phone,.wa-big{display:inline-flex;align-items:center;justify-content:center;gap:12px;font-size:clamp(1.2rem,5vw,1.7rem);font-weight:800;padding:14px 34px;border-radius:60px;text-decoration:none;direction:ltr;transition:.3s;min-height:56px}
+  .phone{color:var(--bg);background:linear-gradient(135deg,var(--gold),var(--gold2));box-shadow:0 12px 30px rgba(227,176,75,.35)}
+  .wa-big{color:#fff;background:var(--wa);box-shadow:0 12px 30px rgba(37,211,102,.3)}
+  .phone:hover,.wa-big:hover{transform:scale(1.05)}
+  .loc{margin-top:26px;color:#cfd8e6}
+
+  footer{background:#0a1220;color:#8a97ab;text-align:center;padding:22px 5% 90px;font-size:.88rem}
+
+  /* ===== Floating WhatsApp ===== */
+  .float-wa{position:fixed;bottom:calc(18px + env(safe-area-inset-bottom));left:18px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(37,211,102,.5);text-decoration:none;animation:pulse 2.2s infinite}
+  .float-wa svg{width:32px;height:32px;fill:#fff}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+
+  /* ===== Mobile ===== */
+  @media(max-width:640px){
+    header{padding:10px 4%}
+    .logo{font-size:1.1rem}
+    nav a{font-size:.85rem;padding:6px 8px}
+    section{padding:64px 5%}
+    .hero-btns .btn{width:100%}
+    .contact-btns > a{width:100%}
+    .hero::before{width:260px;height:260px}
+  }
+  @media(max-width:380px){
+    nav a:first-child{display:none}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<!-- WhatsApp icon (reused) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="wa-icon" viewBox="0 0 32 32"><path d="M16.003 3C9.373 3 4 8.373 4 15c0 2.385.697 4.607 1.895 6.48L4 29l7.724-1.86A11.94 11.94 0 0 0 16.003 27C22.63 27 28 21.627 28 15S22.63 3 16.003 3zm0 21.8c-1.9 0-3.67-.55-5.16-1.5l-.37-.22-4.58 1.1 1.14-4.46-.24-.38A9.76 9.76 0 0 1 6.2 15c0-5.42 4.4-9.8 9.8-9.8 5.4 0 9.8 4.38 9.8 9.8 0 5.4-4.4 9.8-9.8 9.8zm5.37-7.33c-.3-.15-1.74-.86-2.01-.96-.27-.1-.47-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.64-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.34.44-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.66-1.6-.9-2.18-.24-.58-.48-.5-.66-.5h-.56c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.49.71.3 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.08 1.74-.71 1.98-1.4.25-.68.25-1.27.17-1.4-.07-.12-.27-.2-.57-.35z"/></symbol>
+</svg>
+
+<header>
+  <div class="logo">تابلویێن <span>مودرێن</span></div>
+  <nav>
+    <a href="#home">سەرەکی</a>
+    <a href="#gallery">تابلۆکان</a>
+    <a href="#contact">پەیوەندی</a>
+  </nav>
+</header>
+
+<!-- ===== Hero ===== -->
+<div class="hero" id="home">
+  <div>
+    <h1> تابلو بۆ  <em>دیوارێن مالاتە </em></h1>
+    <p>باشترین تابلویێن مودرێن ل دهوکێ.جوانیا ماڵ و ئۆفیسا تە رێکدێخیت</p>
+    <div class="hero-btns">
+      <a href="#gallery" class="btn btn-gold">تابلۆکان ببینە</a>
+      <a href="https://wa.me/9647519671007" class="btn btn-line" target="_blank" rel="noopener">واتسئاپ</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Gallery ===== -->
+<section id="gallery">
+  <div class="title">
+    <h2>تابلویێن مە</h2>
+    <div class="bar"></div>
+    <p>سێ تابلۆی تایبەت </p>
+  </div>
+
+  <div class="grid">
+
+    <!-- تابلۆی یەکەم -->
+    <div class="card">
+      <div class="frame">
+        <img class="art" src="1.jpg" alt="شەوی ئەستێرەدار" loading="lazy">
+      </div>
+      <div class="info">
+        <h3>شەوی ئەستێرەدار</h3>
+        <p>تابلۆیەکی شەو بە ئاسمانی پڕ لە ئەستێرە و گوندێکی ئارام، گونجاو بۆ ژووری میوان.</p>
+        <div class="price">35,000 <small>دینار</small></div>
+        <div class="actions">
+          <a class="order call" href="tel:07519671007">📞 پەیوەندی</a>
+          <a class="order wa" href="https://wa.me/9647519671007?text=سڵاو، دەمەوێت تابلۆی «شەوی ئەستێرەدار» داوا بکەم" target="_blank" rel="noopener"><svg width="20" height="20" fill="#fff"><use href="#wa-icon"/></svg> واتسئاپ</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- تابلۆی دووەم -->
+    <div class="card">
+      <div class="frame">
+        <img class="art" src="2.jpg" alt="چیا و دەریاچە" loading="lazy">
+      </div>
+      <div class="info">
+        <h3>چیا و دەریاچە</h3>
+        <p>دیمەنی ئارامی چیا و دارستان و ئاوی دەریاچە، بۆ ژووری نوستن یان ئۆفیس.</p>
+        <div class="price">15,000 <small>دینار</small></div>
+        <div class="actions">
+          <a class="order call" href="tel:07519671007">📞 پەیوەندی</a>
+          <a class="order wa" href="https://wa.me/9647519671007?text=سڵاو، دەمەوێت تابلۆی «چیا و دەریاچە» داوا بکەم" target="_blank" rel="noopener"><svg width="20" height="20" fill="#fff"><use href="#wa-icon"/></svg> واتسئاپ</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- تابلۆی سێیەم -->
+    <div class="card">
+      <div class="frame">
+        <img class="art" src="3.jpg" alt="شەوی دەریا" loading="lazy">
+      </div>
+      <div class="info">
+        <h3>شەوی دەریا</h3>
+        <p>تابلۆیەکی رەنگاوڕەنگ بە ئاسمانی شەپۆلدار و کەشتییەک لەسەر ئاو، ژوورەکەت زیندوو دەکاتەوە.</p>
+        <div class="price">30,000 <small>دینار</small></div>
+        <div class="actions">
+          <a class="order call" href="tel:07519671007">📞 پەیوەندی</a>
+          <a class="order wa" href="https://wa.me/9647519671007?text=سڵاو، دەمەوێت تابلۆی «شەوی دەریا» داوا بکەم" target="_blank" rel="noopener"><svg width="20" height="20" fill="#fff"><use href="#wa-icon"/></svg> واتسئاپ</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section class="contact" id="contact">
+  <h2>بۆ داخازکرنێ پەیوەندی بمە بکە</h2>
+  <p> ب رێکا تلەفونێ یان واتسئاپی داخاز بکە ، ئەم ئامادەینە بو بەرسڤدانێ و گەهاندنێ </p>
+  <div class="contact-btns">
+    <a class="phone" href="tel:07519671007">📞 07519671007</a>
+    <a class="wa-big" href="https://wa.me/9647519671007" target="_blank" rel="noopener"><svg width="28" height="28" fill="#fff"><use href="#wa-icon"/></svg> WhatsApp</a>
+  </div>
+  <div class="loc">📍 دهۆک، هەرێمی کوردستان</div>
+</section>
+
+<footer>© 2026 دوکانی تابلۆ - دهۆک | هەموو مافەکان پارێزراون</footer>
+
+<!-- دوگمەی واتسئاپی شۆڕ -->
+<a class="float-wa" href="https://wa.me/9647519671007" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32"><use href="#wa-icon"/></svg>
+</a>
+
+</body>
+</html>
